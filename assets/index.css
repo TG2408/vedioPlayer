@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: linear-gradient(135deg, red 0%, sandybrown 10%, yellowgreen 20%);
+}
+
+.main {
+    display: flex;
+}
+
+.help {
+    background-color: red;
+    width: 40vmin;
+    height: auto;
+}
+
+.player {
+    position: relative;
+    margin: 5vmin 5vmin 0 5vmin ;
+}
+
+.video_player {
+    position: relative;
+    border: 5px solid red;
+    width: 150vmin;
+    height: auto;
+}
+
+#div-left {
+    position: absolute;
+    left: 5vmin;
+    top: 1vmin;
+    width: 65vmin;
+    height: 75vmin;
+    z-index: 1;
+}
+
+#div-right {
+    position: absolute;
+    left: 78vmin;
+    top: 1vmin;
+    width: 66.5vmin;
+    height: 75vmin;
+    z-index: 1;
+}
+
+
+
+.player_controls {
+    position: absolute;
+    bottom: 3vmin;
+    left: 2vmin;
+    visibility: hidden;
+    width: 100%;
+}
+.player:hover .player_controls {
+    visibility: visible;
+}
+
+#toggle {
+    margin: 0;
+    padding: 1vmin 4vmin;
+    border-radius: 5px 10px;
+    margin: 0 2vmin;
+    background-color: rgba(65, 57, 57, 0.636);
+    color: white;
+}
+
+.player__slider{
+/**/
+}
+
+#speed {
+    transform: translateY(-39vmin) translateX(-48vmin) rotateZ(270deg);
+    width: 70vmin;
+    position: absolute;
+    color: gray;
+}
+
+#volume {
+    transform: translateY(-39vmin) translateX(94vmin) rotateZ(270deg);
+    width: 70vmin;
+    position: absolute;
+    color: gray;
+}
+
+#duration {
+    position: absolute;
+    width: 100vmin;
+    transform: translateX(20vmin) translateY(2vmin);
+}
+
+.player_button_outer {
+    position: absolute;
+    transform: translateX(127vmin) translateY(-5vmin);
+}
+
+.player_button {
+    margin: 5px;
+    padding: 6px 12px;
+    background-color: rgba(65, 57, 57, 0.636);
+    color: white;
+    border-radius: 5px 10px;
+}
+
+
+  
