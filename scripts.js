@@ -15,8 +15,16 @@ let divLeft = document.getElementById("div-left");
 //set duration
 vedio.onloadedmetadata = () => duratn.setAttribute("max",`${vedio.duration}`);
 
-
-toggle.addEventListener("click", () => (vedio.paused) ? vedio.play() : vedio.pause());
+//Play / Pause
+toggle.addEventListener("click", () => {
+    if (vedio.paused) {
+        vedio.play();
+        toggle.innerHTML='❚ ❚';
+    } else {
+        vedio.pause()
+        toggle.innerHTML= "►" ;
+    }
+})
 
 //all the listners for volume
 volum.addEventListener("change",() => vedio.volume = volum.value);
@@ -40,7 +48,7 @@ divLeft.addEventListener("wheel",(event) => {
     spd.value = vedio.playbackRate;
 });
 
-
+//all listners for vedio duration
 duratn.addEventListener("change", () => vedio.currentTime = duratn.value);
 duratn.addEventListener("wheel", (event) => {
     if(event.deltaY < 0) {
@@ -50,6 +58,10 @@ duratn.addEventListener("wheel", (event) => {
         vedio.currentTime -= 10;
         duratn.value = vedio.currentTime;
     }
+})
+duratn.addEventListener("mousemove", (event) => {
+    console.log(event);
+    console.log(duratn.value);
 })
 
 forward.addEventListener("click",() => {
