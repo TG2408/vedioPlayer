@@ -7,17 +7,27 @@ let spd = document.getElementById("speed");
 let duratn = document.getElementById("duration");
 let divRight = document.getElementById("div-right");
 let divLeft = document.getElementById("div-left");
+let seekVedio = document.getElementById("seek-vedio");
 
- 
 
-
+duratn.addEventListener("mousemove", (event) => {
+    let xSeek = 60+((event.x-212));
+    seekVedio.style.visibility = "visible";
+    seekVedio.currentTime = (((event.x-212)/783)*vedio.duration);
+    seekVedio.style.left = `${xSeek}px`
+})
+duratn.addEventListener("mouseout", () => seekVedio.style.visibility = "hidden")
 
 //set duration
-vedio.onloadedmetadata = () => duratn.setAttribute("max",`${vedio.duration}`);
+vedio.onloadedmetadata = () => {
+    duratn.setAttribute("max",`${vedio.duration}`);
+    vedio.currentTime = "6";
+}
 
 //Play / Pause
 toggle.addEventListener("click", () => {
     if (vedio.paused) {
+        vedio.currentTime = "0";
         vedio.play();
         toggle.innerHTML='❚ ❚';
     } else {
@@ -59,14 +69,11 @@ duratn.addEventListener("wheel", (event) => {
         duratn.value = vedio.currentTime;
     }
 })
-duratn.addEventListener("mousemove", (event) => {
-    console.log(event);
-    console.log(duratn.value);
-})
 
 forward.addEventListener("click",() => {
     vedio.currentTime += 10;
     duratn.value = vedio.currentTime;
+   
 })
 backward.addEventListener("click",() => {
     vedio.currentTime -= 10;

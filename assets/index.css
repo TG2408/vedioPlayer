@@ -105,5 +105,15 @@ html {
     border-radius: 5px 10px;
 }
 
+#seek-vedio {
+    position: absolute;
+    border: 2px solid black;
+    visibility: hidden;
+    left: 60px;
+    top: 62.5vmin;
+    z-index: 58;
+    width: 25vmin;
+    height: auto;
+}
 
   
