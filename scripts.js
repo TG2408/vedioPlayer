@@ -8,6 +8,13 @@ let duratn = document.getElementById("duration");
 let divRight = document.getElementById("div-right");
 let divLeft = document.getElementById("div-left");
 let seekVedio = document.getElementById("seek-vedio");
+let thumbnailVedio =document.getElementsByClassName("thumbnail-vedio")[0];
+
+function thumbnailFunc() {
+    thumbnailVedio.currentTime = 0;
+}
+
+let thumbnail =setInterval(thumbnailFunc,7000);
 
 
 duratn.addEventListener("mousemove", (event) => {
@@ -21,13 +28,14 @@ duratn.addEventListener("mouseout", () => seekVedio.style.visibility = "hidden")
 //set duration
 vedio.onloadedmetadata = () => {
     duratn.setAttribute("max",`${vedio.duration}`);
-    vedio.currentTime = "6";
 }
 
 //Play / Pause
 toggle.addEventListener("click", () => {
     if (vedio.paused) {
-        vedio.currentTime = "0";
+        clearInterval(thumbnail);
+        thumbnailVedio.pause();
+        thumbnailVedio.style.visibility = "hidden";
         vedio.play();
         toggle.innerHTML='❚ ❚';
     } else {

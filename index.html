@@ -12,7 +12,11 @@
     <div class="player">
       <div id="div-left"></div>
       <div id="div-right"></div>
-      <video class="video_player viewer" id="vedio">
+      <video class="video_player" id="vedio">
+        <source src="assets/652333414.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+      </video>
+      <video class="thumbnail-vedio" autoplay muted>
         <source src="assets/652333414.mp4" type="video/mp4">
         Your browser does not support HTML video.
       </video>
@@ -33,7 +37,16 @@
       </div>
     </div>
 
-    <div class="help">as</div>
+    <div class="help">
+      <h1 id="ftrHdng">Features</h1>
+      <ul>
+        <li>Vedio on vedio feature by Hover over duration bar render's vedio</li>
+        <li>Scrolling on right side of vedio increase/decrease volume</li>
+        <li>Scrolling on left side of vedio increase/decrease speed</li>
+        <li>Scrolling on duration bar of vedio forward/backword vedio</li>
+        <li>Some Control buttons</li>
+      </ul>
+    </div>
   </div> 
 
   <script src="scripts.js"></script>
