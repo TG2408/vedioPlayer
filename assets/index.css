@@ -38,16 +38,16 @@ html {
     position: absolute;
     left: 5vmin;
     top: 1vmin;
-    width: 65vmin;
+    width: 71.5vmin;
     height: 75vmin;
     z-index: 1;
 }
 
 #div-right {
     position: absolute;
-    left: 78vmin;
+    left: 76.5vmin;
     top: 1vmin;
-    width: 66.5vmin;
+    width: 68vmin;
     height: 75vmin;
     z-index: 1;
 }
@@ -128,6 +128,6 @@ html {
 }
 
 .help ul li {
-    margin: 10px 5px;
+    margin: 10px 0;
 }
   

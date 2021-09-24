@@ -1,3 +1,5 @@
+//Get Elements
+
 let toggle = document.getElementById("toggle");
 let vedio = document.getElementById("vedio");
 let forward = document.getElementById("forward");
@@ -10,28 +12,11 @@ let divLeft = document.getElementById("div-left");
 let seekVedio = document.getElementById("seek-vedio");
 let thumbnailVedio =document.getElementsByClassName("thumbnail-vedio")[0];
 
-function thumbnailFunc() {
-    thumbnailVedio.currentTime = 0;
-}
 
-let thumbnail =setInterval(thumbnailFunc,7000);
+// Function
 
-
-duratn.addEventListener("mousemove", (event) => {
-    let xSeek = 60+((event.x-212));
-    seekVedio.style.visibility = "visible";
-    seekVedio.currentTime = (((event.x-212)/783)*vedio.duration);
-    seekVedio.style.left = `${xSeek}px`
-})
-duratn.addEventListener("mouseout", () => seekVedio.style.visibility = "hidden")
-
-//set duration
-vedio.onloadedmetadata = () => {
-    duratn.setAttribute("max",`${vedio.duration}`);
-}
-
-//Play / Pause
-toggle.addEventListener("click", () => {
+// Play & Pause Function
+function toggleFunc() {
     if (vedio.paused) {
         clearInterval(thumbnail);
         thumbnailVedio.pause();
@@ -42,7 +27,35 @@ toggle.addEventListener("click", () => {
         vedio.pause()
         toggle.innerHTML= "►" ;
     }
+}
+
+
+//eventListners
+
+//thumbnail generator 
+let thumbnail =setInterval(() => thumbnailVedio.currentTime = 0, 7000);
+
+//hover over durationn bar
+duratn.addEventListener("mousemove", (event) => {
+    let xSeek = 60+((event.x-212));
+    seekVedio.style.visibility = "visible";
+    seekVedio.currentTime = (((event.x-212)/783)*vedio.duration);
+    seekVedio.style.left = `${xSeek}px`
 })
+duratn.addEventListener("mouseout", () => seekVedio.style.visibility = "hidden")
+
+//update duration on duration bar
+vedio.addEventListener("timeupdate", () => duratn.value = vedio.currentTime);
+
+//set totalduration
+vedio.onloadedmetadata = () => {
+    duratn.setAttribute("max",`${vedio.duration}`);
+}
+
+//Play / Pause
+toggle.addEventListener("click", toggleFunc);
+divRight.addEventListener("click", toggleFunc);
+divLeft.addEventListener("click", toggleFunc);
 
 //all the listners for volume
 volum.addEventListener("change",() => vedio.volume = volum.value);
@@ -78,14 +91,8 @@ duratn.addEventListener("wheel", (event) => {
     }
 })
 
-forward.addEventListener("click",() => {
-    vedio.currentTime += 10;
-    duratn.value = vedio.currentTime;
-   
-})
-backward.addEventListener("click",() => {
-    vedio.currentTime -= 10;
-    duratn.value = vedio.currentTime;
-})
+//backward & forward vedio
+forward.addEventListener("click", () => vedio.currentTime += 10);
+backward.addEventListener("click", () => vedio.currentTime -= 10);
 
 
